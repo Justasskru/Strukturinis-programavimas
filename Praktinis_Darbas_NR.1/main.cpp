@@ -108,6 +108,7 @@ while (a!=1) {
 
         default:
             cout<<"Pasirinkimas neteisingas"<<endl;
+            break;
     }
     //Klausimas ar norima test
     cout<<"Ar tai viskas?"<<endl;
