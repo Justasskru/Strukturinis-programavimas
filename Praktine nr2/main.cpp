@@ -1,10 +1,10 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 const int MAX_MOKINIAI = 100;
 const int MAX_PAZYMIAI = 10;
 
-// --- Funkcijos ---
 
 void ivestiDuomenis(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuSkaicius, int &pazymiuSkaicius) {
     cout << "Kiek bus mokiniu? ";
@@ -13,17 +13,18 @@ void ivestiDuomenis(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuS
     cin >> pazymiuSkaicius;
 
     for (int i = 0; i < mokiniuSkaicius; i++) {
-        cout << "Iveskite " << i + 1 << "-o mokinio varda: ";
+        cout << "Iveskite " << i + 1 << "-o mokinio varda: "<<endl;
         cin >> vardai[i];
         for (int j = 0; j < pazymiuSkaicius; j++) {
-            cout << "Iveskite " << j + 1 << "-a pazymi: ";
+            cout << "Iveskite " << j + 1 << "-a pazymi: "<<endl;
             cin >> pazymiai[i][j];
         }
     }
 }
 
 void perziuretiPazymius(const string vardai[], const int pazymiai[][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
-    cout << "\n--- Mokiniu pazymiai ---" << endl;
+    cout << "Mokiniu pazymiai: " << endl;
+    double vid;
     for (int i = 0; i < mokiniuSkaicius; i++) {
         cout << vardai[i] << ": ";
         double suma = 0;
@@ -31,13 +32,14 @@ void perziuretiPazymius(const string vardai[], const int pazymiai[][MAX_PAZYMIAI
             cout << pazymiai[i][j] << " ";
             suma += pazymiai[i][j];
         }
-        cout << "| Vidurkis: " << suma / pazymiuSkaicius << endl;
+        vid = suma / pazymiuSkaicius;
+        cout << "  Vidurkis: " <<fixed<< setprecision(2)<< vid << endl;
     }
 }
 
 void atnaujintiPazymi(string vardai[], int pazymiai[][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
-    cout << "Iveskite mokinio varda, kurio pazymi norite pakeisti: ";
+    cout << "Iveskite mokinio varda: ";
     cin >> vardas;
 
     bool rastas = false;
@@ -52,7 +54,7 @@ void atnaujintiPazymi(string vardai[], int pazymiai[][MAX_PAZYMIAI], int mokiniu
                 cin >> pazymiai[i][nr - 1];
                 cout << "Pazymys atnaujintas!" << endl;
             } else {
-                cout << "Neteisingas pazymio numeris!" << endl;
+                cout << "Tokio pazymio numerio nera" << endl;
             }
             break;
         }
@@ -62,7 +64,9 @@ void atnaujintiPazymi(string vardai[], int pazymiai[][MAX_PAZYMIAI], int mokiniu
 
 void pasalintiMokini(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
-    cout << "Iveskite mokinio varda, kuri norite pasalinti: ";
+    cout<<"Mokinio pasalinimas"<<endl;
+    cout<<"--------------------"<<endl;
+    cout << "Iveskite mokinio varda: ";
     cin >> vardas;
 
     bool rastas = false;
@@ -95,11 +99,11 @@ int main() {
 
     do {
         cout << "----Mokiniu pazymiu sistema----" << endl;
-        cout << "1. Ivesti mokinius ir ju pazymius" << endl;
-        cout << "2. Perziureti pazymius" << endl;
-        cout << "3. Atnaujinti pazymi" << endl;
-        cout << "4. Pasalinti mokini" << endl;
-        cout << "5. Baigti darba" << endl;
+        cout << "1 Ivesti mokinius ir ju pazymius" << endl;
+        cout << "2 Perziureti pazymius" << endl;
+        cout << "3 Pakeisti pazymi" << endl;
+        cout << "4 Pasalinti mokini" << endl;
+        cout << "5 Baigti" << endl;
         cout << "Pasirinkimas: ";
         cin >> pasirinkimas;
 
@@ -120,7 +124,7 @@ int main() {
                 cout << "Aciu kad naudojotes." << endl;
                 break;
             default:
-                cout << "Neteisingas pasirinkimas!" << endl;
+                cout << "Tokio pasirinkimo nera" << endl;
         }
     } while (pasirinkimas != 5);
 
