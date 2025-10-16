@@ -6,7 +6,9 @@ const int MAX_MOKINIAI = 100;
 const int MAX_PAZYMIAI = 10;
 
 
-void ivestiDuomenis(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuSkaicius, int &pazymiuSkaicius) {
+void ivestiDuomenis(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int &pazymiuSkaicius) {
+cout<<"Mokiniu ir ju pazimiu ivedimas"<<endl;
+    cout<<"----------------------"<<endl;
     cout << "Kiek bus mokiniu? ";
     cin >> mokiniuSkaicius;
     cout << "Kiek pazymiu tures kiekvienas mokinys? ";
@@ -22,7 +24,9 @@ void ivestiDuomenis(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuS
     }
 }
 
-void perziuretiPazymius(const string vardai[], const int pazymiai[][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
+void perziuretiPazymius(const string vardai[MAX_MOKINIAI], const int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
+cout<<"Pazymiu perziura";
+    cout<<"---------------------"<<endl;
     cout << "Mokiniu pazymiai: " << endl;
     double vid;
     for (int i = 0; i < mokiniuSkaicius; i++) {
@@ -37,8 +41,10 @@ void perziuretiPazymius(const string vardai[], const int pazymiai[][MAX_PAZYMIAI
     }
 }
 
-void atnaujintiPazymi(string vardai[], int pazymiai[][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
+void atnaujintiPazymi(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
+cout<<"Pazymiu atnaujinimas"<<endl;
+    cout<<"---------------------"<<endl;
     cout << "Iveskite mokinio varda: ";
     cin >> vardas;
 
@@ -62,7 +68,7 @@ void atnaujintiPazymi(string vardai[], int pazymiai[][MAX_PAZYMIAI], int mokiniu
     if (!rastas) cout << "Toks mokinys nerastas." << endl;
 }
 
-void pasalintiMokini(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
+void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
     cout<<"Mokinio pasalinimas"<<endl;
     cout<<"--------------------"<<endl;
@@ -80,11 +86,11 @@ void pasalintiMokini(string vardai[], int pazymiai[][MAX_PAZYMIAI], int &mokiniu
             }
             mokiniuSkaicius--;
             rastas = true;
-            cout << "Mokinys pasalintas." << endl;
+            cout << "Mokinys pasalintas" << endl;
             break;
         }
     }
-    if (!rastas) cout << "Toks mokinys nerastas." << endl;
+    if (!rastas) cout << "Tokio mokinio nera" << endl;
 }
 
 // --- Pagrindinė programa ---
