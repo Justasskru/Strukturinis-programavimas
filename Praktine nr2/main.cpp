@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 using namespace std;
 //maximalios reiksmes
 const int MAX_MOKINIAI = 100;
