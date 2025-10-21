@@ -1,13 +1,14 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-
+//maximalios reiksmes
 const int MAX_MOKINIAI = 100;
 const int MAX_PAZYMIAI = 10;
 
-
+//funkcija duomenims ivesti
 void ivestiDuomenis(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int &pazymiuSkaicius) {
-cout<<"Mokiniu ir ju pazimiu ivedimas"<<endl;
+    cout<<"----------------------"<<endl;
+    cout<<"Mokiniu ir ju pazymiu ivedimas"<<endl;
     cout<<"----------------------"<<endl;
     cout << "Kiek bus mokiniu? ";
     cin >> mokiniuSkaicius;
@@ -23,11 +24,12 @@ cout<<"Mokiniu ir ju pazimiu ivedimas"<<endl;
         }
     }
 }
-
+//funkcija duomenu perziurai
 void perziuretiPazymius(const string vardai[MAX_MOKINIAI], const int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
-cout<<"Pazymiu perziura";
-    cout<<"---------------------"<<endl;
+
+    cout<<"----------------------"<<endl;
     cout << "Mokiniu pazymiai: " << endl;
+    cout<<"----------------------"<<endl;
     double vid;
     for (int i = 0; i < mokiniuSkaicius; i++) {
         cout << vardai[i] << ": ";
@@ -40,14 +42,17 @@ cout<<"Pazymiu perziura";
         cout << "  Vidurkis: " <<fixed<< setprecision(2)<< vid << endl;
     }
 }
-
+//pazymio atnaujinimo funkcija
 void atnaujintiPazymi(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
+    //kreipiames i funkcija kad isvestu visus duomenis
+    perziuretiPazymius(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
+    cout<<"----------------------"<<endl;
 cout<<"Pazymiu atnaujinimas"<<endl;
     cout<<"---------------------"<<endl;
     cout << "Iveskite mokinio varda: ";
     cin >> vardas;
-
+    // mokionio vardo suradimas
     bool rastas = false;
     for (int i = 0; i < mokiniuSkaicius; i++) {
         if (vardai[i] == vardas) {
@@ -67,14 +72,17 @@ cout<<"Pazymiu atnaujinimas"<<endl;
     }
     if (!rastas) cout << "Toks mokinys nerastas." << endl;
 }
-
+//mokinio pasalinimo funkcija
 void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
+    //kreipiames i funkcija kad isvestu visus duomenis
+    perziuretiPazymius(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
+    cout<<"----------------------"<<endl;
     cout<<"Mokinio pasalinimas"<<endl;
     cout<<"--------------------"<<endl;
     cout << "Iveskite mokinio varda: ";
     cin >> vardas;
-
+// mokinio vardo suradimas
     bool rastas = false;
     for (int i = 0; i < mokiniuSkaicius; i++) {
         if (vardai[i] == vardas) {
@@ -93,14 +101,14 @@ void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX
     if (!rastas) cout << "Tokio mokinio nera" << endl;
 }
 
-// --- Pagrindinė programa ---
+
 
 int main() {
     string vardai[MAX_MOKINIAI];
     int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI];
     int mokiniuSkaicius = 0;
     int pazymiuSkaicius = 0;
-
+//meniu
     int pasirinkimas;
 
     do {
