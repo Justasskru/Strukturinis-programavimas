@@ -43,6 +43,36 @@ void perziuretiPazymius(const string vardai[MAX_MOKINIAI], const int pazymiai[MA
         cout << "  Vidurkis: " <<fixed<< setprecision(2)<< vid << endl;
     }
 }
+//Konkretaus mokinio pazimiu perziura
+void  perziuretiKonkPaz(const string vardai[MAX_MOKINIAI], const int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaiciu) {
+string vardas;
+    double sum=0, vid=0;
+    int k=0;
+    cout<<"----------------------"<<endl;
+    cout<<"Iveskite mokinio varda:"<<endl;
+    cout<<"----------------------"<<endl;
+    cin>>vardas;
+    bool rastas = false;
+    for (int i = 0; i < mokiniuSkaicius; i++) {
+        if (vardai[i] == vardas) {
+            rastas = true;
+            cout <<vardai[i] << ": ";
+            for (int j = 0; j < pazymiuSkaiciu; j++) {
+                cout << pazymiai[i][j] << " ";
+                sum += pazymiai[i][j];
+                k++;
+            }
+            vid = sum / k;
+            cout << "  Vidurkis: " <<fixed<< setprecision(2)<< vid << endl;
+
+            if (!rastas) {
+
+                cout<<"Tokio mokinio nera"<<endl;
+            }
+        }
+    }
+    if (!rastas) cout << "Toks mokinys nerastas." << endl;
+}
 //pazymio atnaujinimo funkcija
 void atnaujintiPazymi(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int mokiniuSkaicius, int pazymiuSkaicius) {
     string vardas;
@@ -71,7 +101,7 @@ cout<<"Pazymiu atnaujinimas"<<endl;
             break;
         }
     }
-    if (rastas==false) cout << "Toks mokinys nerastas." << endl;
+    if (!rastas) cout << "Toks mokinys nerastas." << endl;
 }
 //mokinio pasalinimo funkcija
 void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
@@ -99,7 +129,7 @@ void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX
             break;
         }
     }
-    if (rastas==false) cout << "Tokio mokinio nera" << endl;
+    if (!rastas) cout << "Tokio mokinio nera" << endl;
 }
 
 
@@ -116,9 +146,10 @@ int main() {
         cout << "----Mokiniu pazymiu sistema----" << endl;
         cout << "1 Ivesti mokinius ir ju pazymius" << endl;
         cout << "2 Perziureti pazymius" << endl;
-        cout << "3 Pakeisti pazymi" << endl;
-        cout << "4 Pasalinti mokini" << endl;
-        cout << "5 Baigti" << endl;
+        cout <<"3 Perziureti konkretaus mokinio pazimi"<<endl;
+        cout << "4 Pakeisti pazymi" << endl;
+        cout << "5 Pasalinti mokini" << endl;
+        cout << "6 Baigti" << endl;
         cout << "Pasirinkimas: ";
         cin >> pasirinkimas;
 
@@ -129,19 +160,22 @@ int main() {
             case 2:
                 perziuretiPazymius(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
                 break;
-            case 3:
-                atnaujintiPazymi(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
+                case 3:
+                perziuretiKonkPaz(vardai, pazymiai, mokiniuSkaicius,pazymiuSkaicius);
                 break;
             case 4:
-                pasalintiMokini(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
+                atnaujintiPazymi(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
                 break;
             case 5:
+                pasalintiMokini(vardai, pazymiai, mokiniuSkaicius, pazymiuSkaicius);
+                break;
+            case 6:
                 cout << "Aciu kad naudojotes." << endl;
                 break;
             default:
                 cout << "Tokio pasirinkimo nera" << endl;
         }
-    } while (pasirinkimas != 5);
+    } while (pasirinkimas != 6);
 
     return 0;
 }
