@@ -71,7 +71,7 @@ cout<<"Pazymiu atnaujinimas"<<endl;
             break;
         }
     }
-    if (!rastas) cout << "Toks mokinys nerastas." << endl;
+    if (rastas==false) cout << "Toks mokinys nerastas." << endl;
 }
 //mokinio pasalinimo funkcija
 void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX_PAZYMIAI], int &mokiniuSkaicius, int pazymiuSkaicius) {
@@ -99,7 +99,7 @@ void pasalintiMokini(string vardai[MAX_MOKINIAI], int pazymiai[MAX_MOKINIAI][MAX
             break;
         }
     }
-    if (!rastas) cout << "Tokio mokinio nera" << endl;
+    if (rastas==false) cout << "Tokio mokinio nera" << endl;
 }
 
 
