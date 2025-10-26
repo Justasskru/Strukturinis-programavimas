@@ -1,3 +1,3 @@
-/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug/CMakeFiles/Strukturinis_programavimas.dir
-/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug/CMakeFiles/Strukturinis_programavimas.dir
+/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

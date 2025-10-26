@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug"
+			"value" : "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -495,7 +495,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -555,7 +555,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/justasskruibys/Desktop/Praktine nr2"
+			"value" : "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1155,7 +1155,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug"
+			"value" : "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug"
 		},
 		{
 			"name" : "Strukturinis_programavimas_IS_TOP_LEVEL",
@@ -1179,7 +1179,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/justasskruibys/Desktop/Praktine nr2"
+			"value" : "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2"
 		}
 	],
 	"kind" : "cache",

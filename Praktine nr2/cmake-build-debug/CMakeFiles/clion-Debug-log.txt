@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S "/Users/justasskruibys/Desktop/Praktine nr2" -B "/Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug"
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2" -B "/Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug"
 -- The C compiler identification is AppleClang 17.0.0.17000319
 -- The CXX compiler identification is AppleClang 17.0.0.17000319
 -- Detecting C compiler ABI info
@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (0.4s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/justasskruibys/Desktop/Praktine nr2/cmake-build-debug
+-- Configuring done (8.0s)
+-- Generating done (2.8s)
+-- Build files have been written to: /Users/justasskruibys/Desktop/Strukturinis-programavimas/Praktine nr2/cmake-build-debug
