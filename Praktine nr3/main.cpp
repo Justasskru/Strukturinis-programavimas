@@ -3,10 +3,10 @@
 #include <sstream>
 
 using namespace std;
-
+const maxKiek=100;
 void pard_sum() {
-    int bilK[4];
-    int pard[4];
+    int bilK[];
+    int pard[];
     int i=0;
     int sumb=0;
     double sumk=0;
