@@ -1,35 +1,36 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <iomanip>
-
 
 using namespace std;
+
 void pard_sum() {
-    int bilK[100];
-    int pard[100];
+    int bilK[4];
+    int pard[4];
     int i=0;
     int sumb=0;
     double sumk=0;
     ifstream df("Pardavimai.txt");
     ofstream fo("Rezultatai.txt");
-
     if (!df.is_open()) {
         cerr << "Failas neatsidaro" << endl;
-        return;
+      
 
     }
-while (!df.eof()) {
-    df >> bilK[i]>>pard[i];
-    sumk=sumk+bilK[i]*pard[i];
-    sumb=sumb+pard[i];
+while ( df >> bilK[i]>>pard[i]) {
+df>>ws;
+    sumk+=bilK[i]*pard[i];
+    sumb+=pard[i];
     i++;
 }
 
     cout<<"Isviso parduota: "<<sumb<<" bilietu"<<endl;
     cout<<"Suma: "<<fixed<<setprecision(2)<<sumb<<sumk<<"e"<<endl;
+    fo<<"Isviso parduota: "<<sumb<<" bilietu"<<endl;
+    fo<<"Suma: "<<fixed<<setprecision(2)<<sumb<<sumk<<"e"<<endl;
     df.close();
-}
+    fo.close();
+};
 
 int main() {
 
