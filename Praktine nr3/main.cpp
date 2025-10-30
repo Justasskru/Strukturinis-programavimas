@@ -1,27 +1,36 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <iomanip>
+
+
 using namespace std;
 void pard_sum() {
     int bilK[100];
     int pard[100];
-    int i=0, j=0;
-    double sumb=0;
+    int i=0;
+    int sumb=0;
     double sumk=0;
-    ifstream df;
-    df.open("pardavimai.txt");
+    ifstream df("Pardavimai.txt");
+    ofstream fo("Rezultatai.txt");
+
     if (!df.is_open()) {
-        cout <<"Tokio failo nera"<<endl;
+        cerr << "Failas neatsidaro" << endl;
+        return;
 
     }
 while (!df.eof()) {
-    df>>bilK[i]>>pard[j];
-    i++; j++;
-    sumk+=bilK[i]*pard[j];
-    sumb+=pard[j];
+    df >> bilK[i]>>pard[i];
+    sumk=sumk+bilK[i]*pard[i];
+    sumb=sumb+pard[i];
+    i++;
+}
+
     cout<<"Isviso parduota: "<<sumb<<" bilietu"<<endl;
-    cout<<"Suma: "<<sumk<<"e"<<endl;
+    cout<<"Suma: "<<fixed<<setprecision(2)<<sumb<<sumk<<"e"<<endl;
+    df.close();
 }
-}
+
 int main() {
 
     int pasirinkimas;
@@ -29,6 +38,7 @@ int main() {
     cout << "1. Bilietu pardavimu suma"<<endl;
     cout << "2. Atlyginimu skaiciavimas"<<endl;
     cout << "3. Baigti "<<endl;
+    cout << "Iveskite pasirinkima: ";
     cin>>pasirinkimas;
 do {
     switch(pasirinkimas) {
