@@ -1,58 +1,106 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <iomanip>
+#include <string>
 
 using namespace std;
-const maxKiek=100;
-void pard_sum() {
-    int bilK[];
-    int pard[];
-    int i=0;
-    int sumb=0;
-    double sumk=0;
-    ifstream df("Pardavimai.txt");
-    ofstream fo("Rezultatai.txt");
-    if (!df.is_open()) {
-        cerr << "Failas neatsidaro" << endl;
-      
 
+//Funkcija skaiciuoti pardavimus ir gauta pelna
+void Pardavimai() {
+    ifstream in("Pardavimai.txt");
+    ofstream out("Rezultatai.txt");
+//Patikrinimas ar failas atsidare
+    if (!in.is_open()) {
+        cout << "Nepavyko atidaryti failo Pardavimai.txt!" << endl;
+        return;
     }
-while ( df >> bilK[i]>>pard[i]) {
-df>>ws;
-    sumk+=bilK[i]*pard[i];
-    sumb+=pard[i];
-    i++;
+
+    double kaina;
+    int kiekis;
+    double bendraSuma = 0;
+    int bendrasKiekis = 0;
+//Nuskaitymas
+    while (in >> kaina >> kiekis) {
+        bendraSuma += kaina * kiekis;
+        bendrasKiekis += kiekis;
+    }
+    cout<<"--------------------------------------"<<endl;
+//Isvedimas i ekrana
+    cout << "Iš viso parduota bilietų: " << bendrasKiekis << endl;
+    cout << "Bendra pardavimų suma: "<< fixed << setprecision(2) << bendraSuma << " EUR" << endl;
+    cout<<"--------------------------------------"<<endl;
+//Isvedimas i faila
+    out << "Iš viso parduota bilietų: "<< bendrasKiekis << endl;
+    out << "Bendra pardavimų suma: "<< fixed << setprecision(2)  << bendraSuma << " EUR" << endl;
+
+    in.close();
+    out.close();
+
+    cout << "Rezultatai įrašyti į 'Rezultatai.txt'." << endl;
+
 }
 
-    cout<<"Isviso parduota: "<<sumb<<" bilietu"<<endl;
-    cout<<"Suma: "<<fixed<<setprecision(2)<<sumb<<sumk<<"e"<<endl;
-    fo<<"Isviso parduota: "<<sumb<<" bilietu"<<endl;
-    fo<<"Suma: "<<fixed<<setprecision(2)<<sumb<<sumk<<"e"<<endl;
-    df.close();
-    fo.close();
-};
-
-int main() {
-
-    int pasirinkimas;
-    cout << "Ka norima daryti?"<<endl;
-    cout << "1. Bilietu pardavimu suma"<<endl;
-    cout << "2. Atlyginimu skaiciavimas"<<endl;
-    cout << "3. Baigti "<<endl;
-    cout << "Iveskite pasirinkima: ";
-    cin>>pasirinkimas;
-do {
-    switch(pasirinkimas) {
-        case 1:
-pard_sum();
-            break;
-        case 2:
-
-break;
-        case 3:
-cout <<"Aciu kad naudojtes";
-break;
+//Atlyginimu skaiciavimas
+void Atlyginimai() {
+    ifstream in("salary.txt");
+    ofstream out("newSalary.txt");
+//Tikrinimas ar failas atsidare
+    if (!in.is_open()) {
+        cout << "Nepavyko atidaryti failo salary.txt!" << endl;
+        return;
     }
 
-}while (pasirinkimas != 3);
+    string pavarde, vardas;
+    double atlyginimas, padidejimas;
+
+    cout<<"Nauji atlyginimai"<<endl;
+    cout << "------------------------------------------" << endl;
+//Nuskaitymas ir isvedimas
+    while (in >> pavarde >> vardas >> atlyginimas >> padidejimas) {
+        //Skaiciavimai
+        double naujas = atlyginimas + atlyginimas * (padidejimas / 100.0);
+
+        cout  <<" "<< pavarde  << " " << vardas << " "<< fixed << setprecision(2) << naujas << endl;
+
+        out << pavarde << " " << vardas << " "<< fixed << setprecision(2) << naujas << endl;
+    }
+
+    in.close();
+    out.close();
+    cout<<"--------------------------------------"<<endl;
+    cout << "Rezultatai įrašyti į 'NewSalary.txt'." << endl;
+    cout<<"--------------------------------------"<<endl;
+}
+
+
+int main() {
+    int pasirinkimas;
+
+    do {
+        cout<<"--------------------------------------"<<endl;
+        cout << "Ka norima daryti?" << endl;
+        cout<<"--------------------------------------"<<endl;
+        cout << "1. Skaičiuoti bilietų pardavimų sumą" << endl;
+        cout << "2. Atnaujinti darbuotojų atlyginimus" << endl;
+        cout << "0. Baigti darbą" << endl;
+        cout<<"--------------------------------------"<<endl;
+        cout << "Pasirinkite: ";
+        cin >> pasirinkimas;
+
+        switch (pasirinkimas) {
+            case 1:
+                Pardavimai();
+                break;
+            case 2:
+                Atlyginimai();
+                break;
+            case 0:
+                cout << "Programa baigia darbą." << endl;
+                break;
+            default:
+                cout << "Neteisingas pasirinkimas" << endl;
+        }
+    } while (pasirinkimas != 0);
+
+    return 0;
 }
