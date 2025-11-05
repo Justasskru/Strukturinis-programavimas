@@ -11,7 +11,7 @@ void Pardavimai() {
     ofstream out("Rezultatai.txt");
 //Patikrinimas ar failas atsidare
     if (!in.is_open()) {
-        cout << "Nepavyko atidaryti failo Pardavimai.txt!" << endl;
+        cerr << "Nepavyko atidaryti failo Pardavimai.txt!" << endl;
         return;
     }
 
@@ -46,7 +46,7 @@ void Atlyginimai() {
     ofstream out("newSalary.txt");
 //Tikrinimas ar failas atsidare
     if (!in.is_open()) {
-        cout << "Nepavyko atidaryti failo salary.txt!" << endl;
+        cerr << "Nepavyko atidaryti failo salary.txt!" << endl;
         return;
     }
 
