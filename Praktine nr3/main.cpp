@@ -20,7 +20,8 @@ void Pardavimai() {
     double bendraSuma = 0;
     int bendrasKiekis = 0;
 //Nuskaitymas
-    while (in >> kaina >> kiekis) {
+    while (!in.eof()) {
+        in >> kaina >> kiekis;
         bendraSuma += kaina * kiekis;
         bendrasKiekis += kiekis;
     }
@@ -56,7 +57,9 @@ void Atlyginimai() {
     cout<<"Nauji atlyginimai"<<endl;
     cout << "------------------------------------------" << endl;
 //Nuskaitymas ir isvedimas
-    while (in >> pavarde >> vardas >> atlyginimas >> padidejimas) {
+    while (!in.eof()) {
+        in >> pavarde >> vardas >> atlyginimas >> padidejimas;
+
         //Skaiciavimai
         double naujas = atlyginimas + atlyginimas * (padidejimas / 100.0);
 
