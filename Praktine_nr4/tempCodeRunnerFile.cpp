@@ -1,1 +1,1 @@
-}
+Sveiki atvykę į restoraną „Pavadinimas“\n
