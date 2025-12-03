@@ -52,7 +52,7 @@ void printCheck(menuItemType menuList[], int count, int quantities[]) {
     receipt << fixed << setprecision(2);
     cout << fixed << setprecision(2);
 
-    cout << "--- Sąskaita ---" << endl;
+    cout << "--- Saskaita ---" << endl;
 
     receipt << "Saskaita"<<endl;
     receipt<<"----------------------"<<endl;
@@ -108,7 +108,7 @@ int main() {
 
         if (choice == 0) break;
         //Tikrina ar egzistuoja toks pasirinkimas
-        if (choice < 1 || choice > itemCount) {
+        if (choice < 1 && choice > itemCount) {
             cout << "Neteisingas pasirinkimas!" << endl;
             continue;
         }
