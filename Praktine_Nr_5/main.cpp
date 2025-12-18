@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//-------------------------------------
+//Struktura mokinio
 struct Mokinys {
     int id;
     char atsakymas[20];
@@ -13,7 +15,8 @@ struct Mokinys {
     double proc = 0.0;
     int pazimys = 0;
 };
-
+//---------------------------------------
+//funkcija klases statistikai
 void KlasesStatistika(const vector<Mokinys>& mokiniai) {
     if (mokiniai.empty()) {
         cout << "Nera duomenu." << endl;
@@ -25,7 +28,6 @@ void KlasesStatistika(const vector<Mokinys>& mokiniai) {
     double sumaProc = 0;
     double maxTaskai = mokiniai[0].taskai;
     double minTaskai = mokiniai[0].taskai;
-
     int pazymiuKiekis[11] = {0}; // 1–10
 
     for (const auto& m : mokiniai) {
@@ -49,6 +51,7 @@ void KlasesStatistika(const vector<Mokinys>& mokiniai) {
 
         pazymiuKiekis[paz]++;
     }
+
 cout <<"Klases statistika"<<endl;
     cout << "--------------------------------"<<endl;
     cout << "Studentu skaicius: " << kiekis << endl;
@@ -63,6 +66,9 @@ cout <<"Klases statistika"<<endl;
     }
     cout << "--------------------------------"<<endl;
 }
+
+//---------------------------------------------------------
+//funkcija klausimu statistikai
 void KlausmStat(const vector<Mokinys>& mok, const vector<char>& teisingiAtsakymai) {
     if (mok.empty()) {
         cout << "Nera duomenu." << endl;
@@ -96,6 +102,8 @@ void KlausmStat(const vector<Mokinys>& mok, const vector<char>& teisingiAtsakyma
         cout << "--------------------" << endl;
     }
 }
+//--------------------------------------------------------
+//studentoc paieska pagal id
 void Stud(const vector<Mokinys>& mok) {
     if (mok.empty()) {
         cout << "Nera duomenu." << endl;
@@ -136,6 +144,8 @@ void Stud(const vector<Mokinys>& mok) {
     cout << "--------------------------------"<<endl;
 }
 
+//----------------------------------------------------------
+//sunkiausio klausimo radimo funkcija
 void SunkiausiasKlausimas(const vector<Mokinys>& mok, const vector<char>& teisingiAtsakymai) {
     if (mok.empty()) {
         cout << "Nera duomenu." << endl;
@@ -159,7 +169,7 @@ void SunkiausiasKlausimas(const vector<Mokinys>& mok, const vector<char>& teisin
     }
 
     double minProc = *min_element(procentai.begin(), procentai.end());
-
+    cout << "--------------------------------" << endl;
     cout << "Sunkiausias klausimas(-ai)" << endl;
     cout << "Maziausias teisingu atsakymu procentas: " << minProc << "%" << endl;
     cout << "--------------------------------" << endl;
@@ -172,7 +182,8 @@ void SunkiausiasKlausimas(const vector<Mokinys>& mok, const vector<char>& teisin
     cout << "--------------------------------" << endl;
 }
 
-
+//--------------------------------------------------------------
+//main
 int main() {
    int studKiek=0;
     ifstream df("testData.txt");
@@ -193,7 +204,7 @@ int main() {
     }
 
     //_________________________________________________
-
+//mokinio id ir atsakymu nuskaitymas
     vector<Mokinys> mok;
     Mokinys X;
 
@@ -207,36 +218,31 @@ int main() {
                 X.taskai -= 2;
             }
         }
+        //pazymio skaiciavimas
         X.proc = (X.taskai / 40.0) * 100.0;
-        if (X.proc >= 90) X.pazimys = 10;
-        else if (X.proc >= 80) X.pazimys = 9;
-        else if (X.proc >= 70) X.pazimys = 8;
-        else if (X.proc >= 60) X.pazimys = 7;
-        else if (X.proc >= 50) X.pazimys = 6;
-        else if (X.proc >= 40) X.pazimys = 5;
-        else if (X.proc >= 30) X.pazimys = 4;
-        else if (X.proc >= 20) X.pazimys = 3;
-        else if (X.proc >= 10) X.pazimys = 2;
+        if (X.proc >= 95) X.pazimys = 10;
+        else if (X.proc >= 85) X.pazimys = 9;
+        else if (X.proc >= 75) X.pazimys = 8;
+        else if (X.proc >= 65) X.pazimys = 7;
+        else if (X.proc >= 55) X.pazimys = 6;
+        else if (X.proc >= 45) X.pazimys = 5;
+        else if (X.proc >= 35) X.pazimys = 4;
+        else if (X.proc >= 25) X.pazimys = 3;
+        else if (X.proc >= 15) X.pazimys = 2;
         else X.pazimys = 1;
         mok.push_back(X);
     }
-    studKiek = mok.size();
+
+
+//-----------------------------------------------------------------------------
 
 ofstream rf("results.txt");
 
     for (int i = 0; i < mok.size(); i++) {
         rf << mok[i].id << " Taskai: "<<mok[i].taskai<<" Procentai: "<<mok[i].proc<<"% Pazimys: "<<mok[i].pazimys<<endl;
-
-
-
     }
 
-
-
-
-
-
-
+    //------------------------------------------------------------------------
 
     int pasirinkimas;
     do {
